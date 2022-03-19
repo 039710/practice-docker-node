@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  my-app:
+    image: simple-app
+    environment:
+      - PORT=${PORT}
+    ports:
+      - 3332:${PORT}
+    container_name: simple-app
+
+
+
+
