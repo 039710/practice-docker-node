@@ -1,6 +1,13 @@
 version: '3'
 
 services:
+  mongo:
+    image: mongo
+    container_name: mongo
+    ports:
+      - "27017:27017"
+   
+    restart: always
   my-app:
     image: simple-app
     environment:
@@ -8,6 +15,12 @@ services:
     ports:
       - 3332:${PORT}
     container_name: simple-app
+    links:
+      - mongo
+    depends_on:
+      - mongo
+    stdin_open: true
+    tty: true
 
 
 
